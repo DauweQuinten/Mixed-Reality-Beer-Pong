@@ -52,13 +52,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cup
       objectReference: {fileID: 0}
+    - target: {fileID: 3451118302482216456, guid: c044d3e9a70eaf943ad307430a8a764b, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c044d3e9a70eaf943ad307430a8a764b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4096104468056158287}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c044d3e9a70eaf943ad307430a8a764b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4277215033179311316}
@@ -74,28 +75,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c044d3e9a70eaf943ad307430a8a764b, type: 3}
   m_PrefabInstance: {fileID: 4441587085274906984}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &4096104468056158287
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3558624608201161785}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5076798556035486163, guid: c044d3e9a70eaf943ad307430a8a764b, type: 3}
 --- !u!135 &4277215033179311316
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -132,7 +111,9 @@ MonoBehaviour:
   onBallEntered:
     m_PersistentCalls:
       m_Calls: []
-  confirmationAudio: {fileID: 8300000, guid: cc793aa8071a0464dae7804f4c914ad5, type: 3}
+  onDrunk:
+    m_PersistentCalls:
+      m_Calls: []
   drinkAudio: {fileID: 8300000, guid: 408688af515b60b4aa70b0b74940c1f1, type: 3}
 --- !u!82 &8645348110927446744
 AudioSource:

@@ -1,24 +1,48 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class BeerPongCup : MonoBehaviour
 {
     public UnityEvent onBallEntered = new UnityEvent();
+    public UnityEvent onDrunk = new UnityEvent();
     private AudioSource _audioSource;
     public AudioClip drinkAudio;
-
+    private bool _isHit = false;
+    
+    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Ball"))
+        if (other.gameObject.CompareTag("Ball") && !_isHit)
         {
+            _isHit = true;
+            MakeGrabbable();
             onBallEntered.Invoke();
-            DrinkBeerSequence();
-            StartCoroutine(DestroyCupAfterSeconds(6f));
+        }
+
+        if (other.gameObject.CompareTag("Mouth") && _isHit)
+        {
+            DrinkBeerSequence();         
         }
     }
 
+
+    private void MakeGrabbable()
+    {
+        Rigidbody rb;
+        GrabbableObjectWithControllers grabbable;
+        if (!TryGetComponent(out rb))
+        {
+            rb = gameObject.AddComponent<Rigidbody>();
+        }
+        if (!TryGetComponent(out grabbable))
+        {
+            grabbable = gameObject.AddComponent<GrabbableObjectWithControllers>();
+        }
+
+        rb.useGravity = false;
+    }
+    
     private void DrinkBeerSequence()
     {
         if(TryGetComponent(out _audioSource))
@@ -29,7 +53,7 @@ public class BeerPongCup : MonoBehaviour
         {
             Debug.LogWarning("There is no audio source assigned to the cup.");
         }
-
+        onDrunk.Invoke();
         StartCoroutine(DestroyCupAfterSeconds(drinkAudio.length));
     }
 
