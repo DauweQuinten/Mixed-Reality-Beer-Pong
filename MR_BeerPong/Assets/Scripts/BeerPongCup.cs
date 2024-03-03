@@ -9,6 +9,7 @@ public class BeerPongCup : MonoBehaviour
     private AudioSource _audioSource;
     public AudioClip drinkAudio;
     private bool _isHit = false;
+    private bool _isDrinking = false;
     
     
     private void OnTriggerEnter(Collider other)
@@ -20,17 +21,17 @@ public class BeerPongCup : MonoBehaviour
             onBallEntered.Invoke();
         }
 
-        if (other.gameObject.CompareTag("Mouth") && _isHit)
+        if (other.gameObject.CompareTag("Mouth") && _isHit && !_isDrinking)
         {
             DrinkBeerSequence();         
         }
     }
-
-
+    
     private void MakeGrabbable()
     {
         Rigidbody rb;
         GrabbableObjectWithControllers grabbable;
+        
         if (!TryGetComponent(out rb))
         {
             rb = gameObject.AddComponent<Rigidbody>();
@@ -39,12 +40,12 @@ public class BeerPongCup : MonoBehaviour
         {
             grabbable = gameObject.AddComponent<GrabbableObjectWithControllers>();
         }
-
-        rb.useGravity = false;
     }
     
     private void DrinkBeerSequence()
     {
+        _isDrinking = true;
+        
         if(TryGetComponent(out _audioSource))
         {
             StartCoroutine(PlayAudioClip(drinkAudio));

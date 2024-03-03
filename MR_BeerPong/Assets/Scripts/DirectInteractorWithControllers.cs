@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -16,6 +18,8 @@ public class DirectInteractorWithControllers : MonoBehaviour
     [SerializeField, Tooltip("Multiplier of force of throw when released")]
     private float _velocityMultiplier = 1f;
 
+    
+    
     /// <summary>
     /// Grab the object in range
     /// </summary>
@@ -24,6 +28,13 @@ public class DirectInteractorWithControllers : MonoBehaviour
         if (_grabbable || _objectsInRange.Count == 0) return;
         
         GameObject objectToGrab = _objectsInRange.ToArray()[0];
+        while (objectToGrab == null)
+        {
+            EraseFromObjectsInRange(objectToGrab);
+            if (_objectsInRange.Count == 0) return;
+            objectToGrab = _objectsInRange.ToArray()[0];
+        }
+        
         if(objectToGrab.TryGetComponent(out _grabbable))
         {
             _grabbable.Grab(this);       
@@ -40,20 +51,30 @@ public class DirectInteractorWithControllers : MonoBehaviour
         _grabbable = null;
     }
 
+    
     /// <summary>
-    /// Reset the state of the interactor. This is needed if the object is destroyed or grabbed by another DirectInteractor.
+    /// Reset the state of the interactor.
+    /// This is needed if the object is destroyed or grabbed by another DirectInteractor.
     /// </summary>
     public void ResetInteractor()
     {
         _grabbable = null;
     }
-
+    
+    private void EraseFromObjectsInRange(GameObject objectToErase)
+    {
+        if (_objectsInRange.Contains(objectToErase))
+        {
+            _objectsInRange.Remove(objectToErase);
+        }
+    }
+    
     private void Update()
     {
         _controllerVelocity = (transform.position - _controllerPrevPos) / Time.deltaTime;
         _controllerPrevPos = transform.position;
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if(other.TryGetComponent(out GrabbableObjectWithControllers grabbableInRange))
@@ -67,9 +88,7 @@ public class DirectInteractorWithControllers : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (_objectsInRange.Contains(other.gameObject))
-        {
-            _objectsInRange.Remove(other.gameObject);
-        }
+        EraseFromObjectsInRange(other.gameObject);
     }
+    
 }
