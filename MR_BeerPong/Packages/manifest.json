@@ -1,9 +1,13 @@
 {
   "dependencies": {
     "com.meta.xr.depthapi": "https://github.com/oculus-samples/Unity-DepthAPI.git?path=/Packages/com.meta.xr.depthapi",
-    "com.meta.xr.mrutilitykit": "60.0.0",
+    "com.meta.xr.mrutilitykit": "62.0.0",
     "com.meta.xr.sdk.core": "60.0.0",
     "com.meta.xr.sdk.interaction.ovr": "60.0.0",
+    "com.meta.xr.sdk.interaction.ovr.samples": "62.0.0",
+    "com.meta.xr.simulator": "62.0.0",
+    "com.meta.xr.simulator.samples": "62.0.0",
+    "com.meta.xr.simulator.synthenvbuilder": "60.0.1",
     "com.unity.collab-proxy": "2.2.0",
     "com.unity.feature.development": "1.0.1",
     "com.unity.textmeshpro": "3.0.6",
