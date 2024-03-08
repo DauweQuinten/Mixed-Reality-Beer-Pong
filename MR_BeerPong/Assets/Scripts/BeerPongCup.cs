@@ -40,6 +40,10 @@ public class BeerPongCup : MonoBehaviour
         {
             grabbable = gameObject.AddComponent<GrabbableObjectWithControllers>();
         }
+        if (TryGetComponent(out Outline outline))
+        {
+            outline.enabled = true;
+        }
     }
     
     private void DrinkBeerSequence()

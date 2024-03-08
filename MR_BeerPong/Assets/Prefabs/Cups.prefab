@@ -217,6 +217,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cup_rb (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7362236397029383624, guid: d2ff5ca4ff2067f4da490ebec7d96db3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362236397029383624, guid: d2ff5ca4ff2067f4da490ebec7d96db3, type: 3}
+      propertyPath: outlineMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362236397029383624, guid: d2ff5ca4ff2067f4da490ebec7d96db3, type: 3}
+      propertyPath: outlineWidth
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

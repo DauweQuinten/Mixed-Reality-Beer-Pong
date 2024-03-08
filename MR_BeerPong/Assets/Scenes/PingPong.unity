@@ -1656,6 +1656,7 @@ MonoBehaviour:
   _cameraRigRef: {fileID: 1177486050}
   _processLateUpdates: 0
   _handedness: 1
+  _ovrHand: {fileID: 0}
   _trackingToWorldTransformer: {fileID: 1177486049}
   _handSkeletonProvider: {fileID: 623595995}
 --- !u!4 &91909401
@@ -2875,6 +2876,7 @@ MonoBehaviour:
   HandType: 1
   _pointerPoseRoot: {fileID: 0}
   m_showState: 3
+  RayHelper: {fileID: 0}
 --- !u!114 &145208327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3452,9 +3454,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handGrabInteractor: {fileID: 374025798}
+  _handVisual: {fileID: 0}
   _handRenderer: {fileID: 0}
   _materialEditor: {fileID: 0}
-  _handVisual: {fileID: 0}
   _glowColorGrabing: {r: 1, g: 1, b: 1, a: 0}
   _glowColorHover: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0}
   _colorChangeSpeed: 0.5
@@ -5865,7 +5867,6 @@ MonoBehaviour:
   SceneLoadedEvent:
     m_PersistentCalls:
       m_Calls: []
-  EnableWorldLock: 1
   SceneSettings:
     DataSource: 0
     RoomIndex: -1
@@ -7652,6 +7653,7 @@ MonoBehaviour:
   _cameraRigRef: {fileID: 1177486050}
   _processLateUpdates: 0
   _handedness: 0
+  _ovrHand: {fileID: 0}
   _trackingToWorldTransformer: {fileID: 1177486049}
   _handSkeletonProvider: {fileID: 623595995}
 --- !u!4 &505405222
@@ -11423,10 +11425,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76943ac7e7394f3e969f0c048b26639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MeshMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  _borderSize: 0.1
-  framesOffset: 0.02
-  addColliders: 1
+  MeshMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  BorderSize: 0.1
+  Colliders: 1
   castShadows: 1
   hideMesh: 1
   textureCoordinateModes:
@@ -13231,6 +13232,7 @@ MonoBehaviour:
   m_controller: 1
   m_showState: 1
   showWhenHandsArePoweredByNaturalControllerPoses: 0
+  RayHelper: {fileID: 0}
 --- !u!114 &965407408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13937,9 +13939,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _handGrabInteractor: {fileID: 1354898274}
+  _handVisual: {fileID: 0}
   _handRenderer: {fileID: 0}
   _materialEditor: {fileID: 0}
-  _handVisual: {fileID: 0}
   _glowColorGrabing: {r: 1, g: 1, b: 1, a: 0}
   _glowColorHover: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0}
   _colorChangeSpeed: 0.5
@@ -16694,7 +16696,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -8344784108403131872, guid: deed68a7fd2e9234899298cf80fae7ad, type: 3}
+  m_Mesh: {fileID: -8344784108403131872, guid: c933168a9a0f1e04bb793786b96e2f4b, type: 3}
   m_Bones:
   - {fileID: 772955714}
   - {fileID: 817529350}
@@ -17993,7 +17995,7 @@ MonoBehaviour:
   virtualGreenScreenApplyDepthCulling: 0
   virtualGreenScreenDepthTolerance: 0.2
   mrcActivationMode: 0
-  launchMultimodalHandsControllersOnStartup: 0
+  launchSimultaneousHandsControllersOnStartup: 0
   isInsightPassthroughEnabled: 1
   requestBodyTrackingPermissionOnStartup: 0
   requestFaceTrackingPermissionOnStartup: 0
@@ -18010,6 +18012,9 @@ MonoBehaviour:
   LateControllerUpdate: 1
   LateLatching: 0
   controllerDrivenHandPosesType: 0
+  SimultaneousHandsAndControllersEnabled: 0
+  _readOnlyWideMotionModeHandPosesEnabled: 0
+  wideMotionModeHandPosesEnabled: 0
 --- !u!114 &1289244305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18605,10 +18610,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e76943ac7e7394f3e969f0c048b26639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MeshMaterial: {fileID: 2100000, guid: 599b01c5f1d17436c89b88cc04257314, type: 2}
-  _borderSize: 0.2
-  framesOffset: 0.02
-  addColliders: 0
+  MeshMaterial: {fileID: 2100000, guid: 599b01c5f1d17436c89b88cc04257314, type: 2}
+  BorderSize: 0.2
+  Colliders: 0
   castShadows: 1
   hideMesh: 1
   textureCoordinateModes:
@@ -19200,7 +19204,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 2703057380131705829, guid: 2b1aaafc31655024394d83dc00911c1c, type: 3}
+  m_Mesh: {fileID: 2703057380131705829, guid: 2b9768cc0be08784b91b7da60696ba29, type: 3}
   m_Bones:
   - {fileID: 577564805}
   - {fileID: 1057772267}
@@ -22252,6 +22256,7 @@ MonoBehaviour:
   m_controller: 2
   m_showState: 1
   showWhenHandsArePoweredByNaturalControllerPoses: 0
+  RayHelper: {fileID: 0}
 --- !u!114 &1681119254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22438,6 +22443,7 @@ MonoBehaviour:
   HandType: 0
   _pointerPoseRoot: {fileID: 0}
   m_showState: 3
+  RayHelper: {fileID: 0}
 --- !u!114 &1682609116
 MonoBehaviour:
   m_ObjectHideFlags: 0
