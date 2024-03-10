@@ -14,16 +14,18 @@ public class BeerPongCup : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Ball") && !_isHit)
+        if (other.gameObject.CompareTag("Ball") && !_isHit && !GameManager.instance.applicationLockState)
         {
             _isHit = true;
             MakeGrabbable();
             onBallEntered.Invoke();
+            GameManager.instance.LockApplication();
         }
 
         if (other.gameObject.CompareTag("Mouth") && _isHit && !_isDrinking)
         {
-            DrinkBeerSequence();         
+            DrinkBeerSequence();       
+            GameManager.instance.LockApplication(false);
         }
     }
     
