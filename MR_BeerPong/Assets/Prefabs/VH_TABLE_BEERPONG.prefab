@@ -664,7 +664,7 @@ MonoBehaviour:
   _pivotTransform: {fileID: 6919824268586886430}
   swapMesh: 0
   OriginalMesh: {fileID: -6692290496178104961, guid: 5ac31a2102c44454a90931093cbe3cac, type: 3}
-  OriginalMaterial: {fileID: 2100000, guid: d148757cf1ccae84ba24fe306009a58c, type: 2}
+  OriginalMaterial: {fileID: 2100000, guid: d067d1dc1d4fb3b458e4b876a302a46d, type: 2}
   maxScaleBeforeSwap: 2
   OversizeMesh: {fileID: 0}
   OversizeMaterial: {fileID: 0}
@@ -678,7 +678,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3956180937208752880}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
